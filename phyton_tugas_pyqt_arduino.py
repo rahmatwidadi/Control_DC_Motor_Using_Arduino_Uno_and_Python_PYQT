@@ -1,4 +1,4 @@
-﻿import sys, os, glob
+import sys, os, glob
 from PyQt5 import QtCore, QtWidgets, uic
 import serial, time
 
@@ -51,52 +51,32 @@ class MyApp(QtWidgets.QMainWindow, Ui_MainWindow):
                 self.TXdata=1
                 self.ser.write(self.TXdata)
                 self.textEdit_LogMessage.append("Stop")
-                #time.sleep(2)
+        
         def forward(self):
                 self.TXdata = bytearray(1)
                 self.TXdata=2
                 self.ser.write(self.TXdata)
                 self.textEdit_LogMessage.append("Constan Forward")
-                #self.textEdit_LogMessage.append("Constan Forward = %d" %(self.TXdata))
-                #time.sleep(2)
-                #self.bytesToRead = self.ser.inWaiting()
-                #if (self.bytesToRead > 0):
-                        #rxdata = self.ser.read(self.bytesToRead)
-                        #self.textEdit_LogMessage.append(rxdata)
-                #self.textEdit_LogMessage.setText("Forward")
-                
+                               
         def turn_right(self):
                 self.TXdata = bytearray(1)
                 self.TXdata=3
                 self.ser.write(self.TXdata)
                 self.textEdit_LogMessage.append("Constan Turn Right" )
                 time.sleep(2)
-                #self.bytesToRead = self.ser.inWaiting()
-                #if (self.bytesToRead > 0):
-                        #rxdata = self.ser.read(self.bytesToRead)
-                        #self.textEdit_LogMessage.append(rxdata)
-        def reverse(self):
                 
+        def reverse(self):
                 self.TXdata = bytearray(1)
                 self.TXdata=4
                 self.ser.write(self.TXdata)
                 self.textEdit_LogMessage.append("Constan Reverse" )
-                #time.sleep(2)
-##              self.bytesToRead = self.ser.inWaiting()
-##              if (self.bytesToRead > 0):
-##                      rxdata = self.ser.read(self.bytesToRead)
-##                      self.textEdit_LogMessage.append(rxdata)
-        def turn_left(self):
                 
+        def turn_left(self):
                 self.TXdata = bytearray(1)
                 self.TXdata=5
                 self.ser.write(self.TXdata)
                 self.textEdit_LogMessage.append("Constan Turn Left" )
-                #time.sleep(2)
-##              self.bytesToRead = self.ser.inWaiting()
-##              if (self.bytesToRead > 0):
-##                      rxdata = self.ser.read(self.bytesToRead)
-##                      self.textEdit_LogMessage.append(rxdata)
+                
         def AppExit(self):
                 self.textEdit_LogMessage.setText("Exit application")
                 sys.exit()
