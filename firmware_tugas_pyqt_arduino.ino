@@ -64,11 +64,11 @@ void turn_left()
   //motor 1
   digitalWrite (in1, HIGH);
   digitalWrite (in2,  LOW);
-  analogWrite (enA, 80);
+  analogWrite (enA, 150);
   //motor 2
   digitalWrite (in3, HIGH);
   digitalWrite (in4, LOW);
-  analogWrite (enB, 40);
+  analogWrite (enB, 80);
 }
 
 void turn_right()
@@ -76,11 +76,11 @@ void turn_right()
   //motor 1
   digitalWrite (in1, HIGH);
   digitalWrite (in2,  LOW);
-  analogWrite (enA, 40);
+  analogWrite (enA, 80);
   //motor 2
   digitalWrite (in3, HIGH);
   digitalWrite (in4, LOW);
-  analogWrite (enB, 80);
+  analogWrite (enB, 150);
 }
 
 
@@ -93,30 +93,25 @@ void loop()
     switch (inbytes) {
       case 1:
         stay();
-        Serial.print("Stop");
         break;
       case 2:
         forward();
-        Serial.print("Constan Forward");
-        //delay(3000);
         break;
       case 3:
         turn_right();
-        Serial.print("Constan Turn Rigt");
+        delay (2000);
+        forward();
         break;
       case 4:
         reverse();
-        Serial.print("Constan Backward");
         break;
       case 5:
         turn_left();
-        Serial.print("constan Turn Left");
+        delay (2000);
+        forward ();
         break;
       default:
         stay();
-        Serial.print("Stop");
     }
-  }
-   
+  }  
 }
-
