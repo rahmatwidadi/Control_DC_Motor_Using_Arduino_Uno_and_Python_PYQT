@@ -47,32 +47,27 @@ class MyApp(QtWidgets.QMainWindow, Ui_MainWindow):
                                 self.button_reverse.setEnabled(False)
                                 self.button_turn_left.setEnabled(False)
         def stay(self):
-                self.TXdata = bytearray(1)
                 self.TXdata=1
                 self.ser.write(self.TXdata)
                 self.textEdit_LogMessage.append("Stop")
         
         def forward(self):
-                self.TXdata = bytearray(1)
                 self.TXdata=2
                 self.ser.write(self.TXdata)
                 self.textEdit_LogMessage.append("Constan Forward")
                                
         def turn_right(self):
-                self.TXdata = bytearray(1)
                 self.TXdata=3
                 self.ser.write(self.TXdata)
                 self.textEdit_LogMessage.append("Constan Turn Right" )
-                time.sleep(2)
+                
                 
         def reverse(self):
-                self.TXdata = bytearray(1)
                 self.TXdata=4
                 self.ser.write(self.TXdata)
                 self.textEdit_LogMessage.append("Constan Reverse" )
                 
         def turn_left(self):
-                self.TXdata = bytearray(1)
                 self.TXdata=5
                 self.ser.write(self.TXdata)
                 self.textEdit_LogMessage.append("Constan Turn Left" )
